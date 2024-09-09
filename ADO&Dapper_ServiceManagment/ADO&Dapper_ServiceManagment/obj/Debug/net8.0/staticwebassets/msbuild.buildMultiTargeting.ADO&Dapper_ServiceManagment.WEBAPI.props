@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\ADO&amp;Dapper_ServiceManagment.WEBAPI.props" />
+</Project>

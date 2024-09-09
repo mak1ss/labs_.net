@@ -1,0 +1,88 @@
+04.09.2024 11:19:13	This log contains information about the import schema operation into project 'ADO&Dapper_ServiceManagment.SqlDatabase' on computer 'DESKTOP-9807EUS' by user 'maksv'.
+04.09.2024 11:19:13	Import of database schema has started.
+04.09.2024 11:19:20	Gathering database credentials
+04.09.2024 11:19:20	Gathering database options
+04.09.2024 11:19:20	Gathering generic database scoped configuration option
+04.09.2024 11:19:20	Gathering users
+04.09.2024 11:19:20	Gathering roles
+04.09.2024 11:19:20	Gathering application roles
+04.09.2024 11:19:20	Gathering role memberships
+04.09.2024 11:19:20	Gathering filegroups
+04.09.2024 11:19:20	Gathering full-text catalogs
+04.09.2024 11:19:20	Gathering assemblies
+04.09.2024 11:19:20	Gathering certificates
+04.09.2024 11:19:20	Gathering asymmetric keys
+04.09.2024 11:19:20	Gathering symmetric keys
+04.09.2024 11:19:20	Gathering encrypted symmetric keys
+04.09.2024 11:19:20	Gathering schemas
+04.09.2024 11:19:20	Gathering XML schema collections
+04.09.2024 11:19:20	Gathering user-defined data types
+04.09.2024 11:19:20	Gathering user-defined types
+04.09.2024 11:19:20	Gathering table types
+04.09.2024 11:19:20	Gathering unique keys for table types
+04.09.2024 11:19:20	Gathering primary keys for table types
+04.09.2024 11:19:20	Gathering indexes for table types
+04.09.2024 11:19:20	Gathering check constraints for table types
+04.09.2024 11:19:20	Gathering default constraints for table types
+04.09.2024 11:19:20	Gathering partition functions
+04.09.2024 11:19:20	Gathering partition schemes
+04.09.2024 11:19:20	Gathering functions
+04.09.2024 11:19:20	Gathering encrypted functions
+04.09.2024 11:19:20	Gathering aggregates
+04.09.2024 11:19:20	Gathering procedures
+04.09.2024 11:19:20	Gathering encrypted procedures
+04.09.2024 11:19:20	Gathering tables
+04.09.2024 11:19:20	Gathering primary keys
+04.09.2024 11:19:20	Gathering unique constraints
+04.09.2024 11:19:20	Gathering foreign keys
+04.09.2024 11:19:20	Gathering default constraints
+04.09.2024 11:19:20	Gathering check constraints
+04.09.2024 11:19:20	Gathering views
+04.09.2024 11:19:20	Gathering encrypted views
+04.09.2024 11:19:20	Gathering indexes
+04.09.2024 11:19:20	Gathering statistics
+04.09.2024 11:19:20	Gathering full-text index stoplists
+04.09.2024 11:19:20	Gathering search property lists
+04.09.2024 11:19:20	Gathering search properties
+04.09.2024 11:19:20	Gathering full-text indexes
+04.09.2024 11:19:20	Gathering column store indexes
+04.09.2024 11:19:20	Gathering spatial indexes
+04.09.2024 11:19:20	Gathering XML indexes
+04.09.2024 11:19:20	Gathering Selective XML indexes
+04.09.2024 11:19:20	Gathering encrypted triggers
+04.09.2024 11:19:20	Gathering triggers
+04.09.2024 11:19:20	Gathering encrypted and clr ddl triggers
+04.09.2024 11:19:20	Gathering ddl triggers
+04.09.2024 11:19:20	Creating edge constraints
+04.09.2024 11:19:20	Gathering synonyms
+04.09.2024 11:19:20	Gathering defaults
+04.09.2024 11:19:20	Gathering data constraint uddt bindings
+04.09.2024 11:19:20	Gathering rules
+04.09.2024 11:19:20	Gathering data constraint uddt bindings
+04.09.2024 11:19:20	Gathering message types
+04.09.2024 11:19:20	Gathering queues
+04.09.2024 11:19:20	Gathering contracts
+04.09.2024 11:19:20	Gathering services
+04.09.2024 11:19:20	Gathering event notifications
+04.09.2024 11:19:20	Gathering remote service bindings
+04.09.2024 11:19:20	Gathering broker priorities
+04.09.2024 11:19:20	Gathering signatures
+04.09.2024 11:19:20	Gathering compression options
+04.09.2024 11:19:20	Gathering sequence types
+04.09.2024 11:19:20	Gathering security policies
+04.09.2024 11:19:20	Gather column encryption keys
+04.09.2024 11:19:20	Gathering column master keys
+04.09.2024 11:19:20	Gathering external data sources
+04.09.2024 11:19:20	Gathering external file formats
+04.09.2024 11:19:20	Gathering external tables
+04.09.2024 11:19:20	Gathering XML index compression options
+04.09.2024 11:19:20	Gathering extended properties
+04.09.2024 11:19:20	Gathering assemblies
+04.09.2024 11:19:20	Gathering credentials
+04.09.2024 11:19:20	Gathering logins
+04.09.2024 11:19:20	Gathering server audits
+04.09.2024 11:19:21	Scanning project for duplicate elements
+04.09.2024 11:19:21	Finished duplicate element processing
+04.09.2024 11:19:21	Finished importing database.
+04.09.2024 11:19:21	A summary of the import was saved to the following location: C:\Users\maksv\source\repos\LabsOOP\ADO&Dapper_ServiceManagment\ADO&Dapper_ServiceManagment.SqlDatabase\Import Schema Logs\ADO&Dapper_ServiceMa_20240904081913.log
+04.09.2024 11:19:21	Click Finish to continue...

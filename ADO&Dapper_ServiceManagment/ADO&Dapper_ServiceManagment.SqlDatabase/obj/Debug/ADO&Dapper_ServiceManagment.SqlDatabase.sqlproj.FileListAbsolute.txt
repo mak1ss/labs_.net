@@ -1,0 +1,10 @@
+C:\Users\maksv\source\repos\LabsOOP\ADO&Dapper_ServiceManagment\ADO&Dapper_ServiceManagment.SqlDatabase\bin\Debug\ADO&Dapper_ServiceManagment.SqlDatabase.dacpac
+C:\Users\maksv\source\repos\LabsOOP\ADO&Dapper_ServiceManagment\ADO&Dapper_ServiceManagment.SqlDatabase\bin\Debug\ADO_Dapper_ServiceManagment.SqlDatabase.dll
+C:\Users\maksv\source\repos\LabsOOP\ADO&Dapper_ServiceManagment\ADO&Dapper_ServiceManagment.SqlDatabase\bin\Debug\ADO_Dapper_ServiceManagment.SqlDatabase.pdb
+C:\Users\maksv\source\repos\LabsOOP\ADO&Dapper_ServiceManagment\ADO&Dapper_ServiceManagment.SqlDatabase\obj\Debug\ADO&Dapper_ServiceManagment.SqlDatabase.sqlproj.AssemblyReference.cache
+C:\Users\maksv\source\repos\LabsOOP\ADO&Dapper_ServiceManagment\ADO&Dapper_ServiceManagment.SqlDatabase\obj\Debug\Model.xml
+C:\Users\maksv\source\repos\LabsOOP\ADO&Dapper_ServiceManagment\ADO&Dapper_ServiceManagment.SqlDatabase\obj\Debug\refactor.xml
+C:\Users\maksv\source\repos\LabsOOP\ADO&Dapper_ServiceManagment\ADO&Dapper_ServiceManagment.SqlDatabase\obj\Debug\postdeploy.sql
+C:\Users\maksv\source\repos\LabsOOP\ADO&Dapper_ServiceManagment\ADO&Dapper_ServiceManagment.SqlDatabase\obj\Debug\predeploy.sql
+C:\Users\maksv\source\repos\LabsOOP\ADO&Dapper_ServiceManagment\ADO&Dapper_ServiceManagment.SqlDatabase\obj\Debug\ADO_Dapper_ServiceManagment.SqlDatabase.dll
+C:\Users\maksv\source\repos\LabsOOP\ADO&Dapper_ServiceManagment\ADO&Dapper_ServiceManagment.SqlDatabase\obj\Debug\ADO_Dapper_ServiceManagment.SqlDatabase.pdb
