@@ -22,7 +22,7 @@ namespace ADO_Dapper_ServiceManagment.DAL.interfaces.sql.services
         
         IEnumerable<Service> GetAllServices();
 
-        IEnumerable<Service> GetServicesByTags(params int[] ids);
+        IEnumerable<Service> GetServicesByTags(string[] tagNames);
 
         IEnumerable<Service> GetServicesByCategory(int category);
     }

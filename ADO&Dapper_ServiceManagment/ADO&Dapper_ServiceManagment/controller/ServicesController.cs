@@ -65,6 +65,56 @@ namespace ADO_Dapper_ServiceManagment.controller
             }
         }
 
+        [HttpGet("tags")]
+        public IActionResult GetServicesByTags([FromQuery] string tagNames)
+        {
+            try
+            {
+                if (tagNames == null || tagNames.Length == 0)
+                {
+                    logger.LogInformation("No tags provided for search.");
+                    return BadRequest(new { Message = "Please provide at least one tag." });
+                }
+
+                var services = serviceManager.GetServicesByTags(tagNames.Split(','));
+                if (services == null || !services.Any())
+                {
+                    logger.LogInformation("No services found for the provided tags.");
+                    return NotFound(new { Message = "No services found for the specified tags." });
+                }
+
+                logger.LogInformation("Returned services for the provided tags.");
+                return Ok(services);
+            }
+            catch (Exception ex)
+            {
+                return HandleException(ex, $"getting service by tags");
+            }
+        }
+
+        [Route("category/{categoryId}")]
+        [HttpGet]
+        public IActionResult GetByCategoryId(int categoryId)
+        {
+            try
+            {
+                var services = serviceManager.GetServicesByCategory(categoryId);
+                if (services == null)
+                {
+                    logger.LogWarning($"Services with category {categoryId} not found");
+                    return NotFound(new { Message = $"Services with category {categoryId} not found" });
+                }
+
+                var result = mapper.Map<IEnumerable<ServiceResponse>>(services);
+                logger.LogInformation($"Returned services by category id {categoryId}");
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return HandleException(ex, $"getting services by category id {categoryId}");
+            }
+        }
+
         [HttpPost]
         public IActionResult CreateService([FromBody] ServiceRequest serviceRequest)
         {
@@ -129,5 +179,6 @@ namespace ADO_Dapper_ServiceManagment.controller
                 return HandleException(ex, $"deleting service with id {id}");
             }
         }
+
     }
 }

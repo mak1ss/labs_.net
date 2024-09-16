@@ -8,8 +8,8 @@ BEGIN
 
 	SELECT @V_sql = 
 		'SELECT * ' +
-		'FROM Services ' +
-		'WHERE category_id = ' + CAST(@P_categoryId AS NVARCHAR) + ';';
+		'FROM Service ' +
+		'WHERE categoryId = ' + CAST(@P_categoryId AS NVARCHAR) + ';';
 
 	IF(@V_sql IS NOT NULL)
 		EXEC(@V_sql)

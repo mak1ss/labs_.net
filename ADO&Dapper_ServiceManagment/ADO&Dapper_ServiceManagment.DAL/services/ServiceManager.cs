@@ -24,9 +24,9 @@ namespace ADO_Dapper_ServiceManagment.DAL.services
         }
 
         
-        public IEnumerable<Service> GetServicesByTags(params int[] tagIds)
+        public IEnumerable<Service> GetServicesByTags(string[] tagNames)
         {
-            return unitOfWork.ServiceRepository.GetServicesByTags(tagIds);
+            return unitOfWork.ServiceRepository.GetServicesByTagNames(tagNames);
         }
 
         public Service GetServiceById(int id)
