@@ -2,7 +2,6 @@
 using Bogus;
 using EF_ServcieManagement.DAL.Entities;
 using EF_ServcieManagement.DAL.Interfaces;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace EF_ServcieManagement.DAL.Seeding

@@ -8,11 +8,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="DTO\Category\" />
-    <Folder Include="DTO\Tag\" />
-    <Folder Include="DTO\Service\" />
-    <Folder Include="Interfaces\" />
     <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="FluentValidation" Version="11.10.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EF_ServcieManagement.DAL\EF_ServcieManagement.DAL.csproj" />
   </ItemGroup>
 
 </Project>

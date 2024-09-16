@@ -63,9 +63,9 @@ namespace EF_ServcieManagement.DAL.Data.Repositories
             return services;
         }
 
-        public async Task<IEnumerable<Service>> GetServicesByTagsAsync(int[] tagIds)
+        public async Task<IEnumerable<Service>> GetServicesByTagsAsync(string[] tagNames)
         {
-            var services = await table.Where(s => s.Tags.Any(t => tagIds.Contains(t.Id))).ToListAsync();
+            var services = await table.Where(s => s.Tags.Any(t => tagNames.Contains(t.Name))).ToListAsync();
 
             return services;
         }

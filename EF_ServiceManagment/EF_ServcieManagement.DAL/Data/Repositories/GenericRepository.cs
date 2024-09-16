@@ -28,11 +28,25 @@ namespace EF_ServcieManagement.DAL.Data.Repositories
 
         public abstract Task<TEntity> GetCompleteEntityAsync(int id);
 
-        public virtual async Task InsertAsync(TEntity entity) => await table.AddAsync(entity);
+        public virtual async Task InsertAsync(TEntity entity)
+        {
+            if(entity is ITrackable) {
+                var trackable = (ITrackable)entity;
+                trackable.CreatedAt = DateTime.UtcNow;
+            }
+            await table.AddAsync(entity);
+        }
 
-        public virtual async Task UpdateAsync(TEntity entity) =>
+        public virtual async Task UpdateAsync(TEntity entity)
+        {
+            if (entity is ITrackable)
+            {
+                var trackable = (ITrackable)entity;
+                trackable.UpdatedAt = DateTime.UtcNow;
+            }
             await Task.Run(() => table.Update(entity));
-
+        }
+            
         public virtual async Task DeleteAsync(int id)
         {
             var entity = await GetByIdAsync(id);

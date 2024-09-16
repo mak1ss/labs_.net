@@ -16,5 +16,10 @@ namespace EF_ServcieManagement.DAL.Data.Repositories
 
             return tag;
         }
+
+        public async Task<IEnumerable<Tag>> GetTagsByIds(int[] ids)
+        {
+            return await table.Where(t => ids.Contains(t.Id)).ToListAsync();
+        }
     }
 }

@@ -3,7 +3,7 @@ using EF_ServcieManagement.DAL.Interfaces;
 
 namespace EF_ServcieManagement.DAL.Entities
 {
-    public class Tag : IEntity<int>
+    public class Tag : IEntity<int>, ITrackable
     {
         public int Id { get; set; }
 
