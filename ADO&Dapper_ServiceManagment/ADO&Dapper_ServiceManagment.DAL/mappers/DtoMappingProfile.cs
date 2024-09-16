@@ -14,13 +14,12 @@ namespace ADO_Dapper_ServiceManagment.DAL.mappers
         {
             //service
             CreateMap<ServiceRequest, Service>()
-                .ForMember(dest => dest.CreatedAt, opt => opt.MapFrom(src => DateTime.UtcNow));
-
+                .ForMember(dest => dest.CreatedAt, opt => opt.MapFrom(src => DateTime.Now));
             CreateMap<Service, ServiceResponse>();
 
             //category
             CreateMap<CategoryRequest, Category>()
-                .ForMember(dest => dest.CreatedAt, opt => opt.MapFrom(src => DateTime.UtcNow));
+                .ForMember(dest => dest.CreatedAt, opt => opt.MapFrom(src => DateTime.Now));
 
             CreateMap<Category, CategoryResponse>();
 
@@ -30,7 +29,7 @@ namespace ADO_Dapper_ServiceManagment.DAL.mappers
 
             //tag
             CreateMap<TagRequest, Tag>()
-                .ForMember(dest => dest.CreatedAt, opt => opt.MapFrom(src => DateTime.UtcNow));
+                .ForMember(dest => dest.CreatedAt, opt => opt.MapFrom(src => DateTime.Now));
             CreateMap<Tag, TagResponse>();
         }
     }

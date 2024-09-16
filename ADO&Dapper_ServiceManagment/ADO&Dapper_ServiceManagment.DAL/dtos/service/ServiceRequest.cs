@@ -12,6 +12,10 @@ namespace ADO_Dapper_ServiceManagment.DAL.dtos.service
         public decimal Price { get; set; }
 
         [Required]
+        [MaxLength(500)]
+        public string Description { get; set; }
+
+        [Required]
         public int CategoryId { get; set; }
     }
 }

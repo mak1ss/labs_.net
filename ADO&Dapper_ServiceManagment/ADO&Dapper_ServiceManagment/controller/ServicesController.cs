@@ -71,9 +71,9 @@ namespace ADO_Dapper_ServiceManagment.controller
             try
             {
                 var service = mapper.Map<Service>(serviceRequest);
-                var newServiceId = serviceManager.CreateService(service);
-                logger.LogInformation($"Service created with id {newServiceId}");
-                return Ok(new { ServiceId = newServiceId });
+                var rowsAffected = serviceManager.CreateService(service);
+                logger.LogInformation($"Service created");
+                return Ok(new { RowsAffected = rowsAffected });
             }
             catch (Exception ex)
             {
@@ -87,23 +87,46 @@ namespace ADO_Dapper_ServiceManagment.controller
             try
             {
                 var service = serviceManager.GetServiceById(id);
-                if(service == null)
+                if (service == null)
                 {
                     return BadRequest(new { Message = $"Service with id {id} doesn't exist" });
                 }
 
                 service = mapper.Map<Service>(serviceRequest);
 
-                
+
                 service.Id = id;
 
                 serviceManager.UpdateService(service);
                 logger.LogInformation($"Service with id {id} updated");
-                return NoContent();
+                return Ok(serviceManager.GetServiceById(service.Id));
             }
             catch (Exception ex)
             {
                 return HandleException(ex, $"updating service with id {id}");
+            }
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteService(int id)
+        {
+            try
+            {
+                var service = serviceManager.GetServiceById(id);
+
+                if (service == null)
+                {
+                    return BadRequest(new { Message = $"Service with id {id} doesn't exist" });
+                }
+
+                serviceManager.DeleteService(service);
+                logger.LogInformation($"Service with id {id} deleted");
+
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                return HandleException(ex, $"deleting service with id {id}");
             }
         }
     }

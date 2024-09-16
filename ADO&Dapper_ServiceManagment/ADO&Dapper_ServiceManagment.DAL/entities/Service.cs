@@ -20,8 +20,7 @@ namespace ADO_Dapper_ServiceManagment.DAL.entities
 
         public double Price { get; set; }
 
-        public DateTime CreatedAt { get; set; }
-
-        public DateTime UpdatedAt { get; set; }
+        public DateTime? CreatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
     }
 }

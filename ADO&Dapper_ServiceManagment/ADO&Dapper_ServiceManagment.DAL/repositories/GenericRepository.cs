@@ -81,7 +81,7 @@ namespace ADO_Dapper_ServiceManagment.DAL.repositories
             {
                 return db.Query<TEntity>(query,
                     new { P_tableName = _tableName, P_Id = id.ToString() },
-                    commandType: CommandType.StoredProcedure).FirstOrDefault();
+                    commandType: CommandType.StoredProcedure).First();
             }
         }
 
