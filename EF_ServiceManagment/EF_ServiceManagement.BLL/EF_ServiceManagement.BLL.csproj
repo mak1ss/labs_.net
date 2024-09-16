@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\EF_ServcieManagement.DAL\EF_ServcieManagement.DAL.csproj" />
+    <ProjectReference Include="..\EF_ServcieManagement.DAL\EF_ServiceManagement.DAL.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,7 +1,4 @@
-﻿
-using EF_ServcieManagement.DAL.Entities;
-using EF_ServcieManagement.DAL.Interfaces;
-using EF_ServiceManagement.BLL.DTO.Category;
+﻿using EF_ServiceManagement.BLL.DTO.Category;
 
 namespace EF_ServiceManagement.BLL.Interfaces.Services
 {
@@ -10,7 +7,7 @@ namespace EF_ServiceManagement.BLL.Interfaces.Services
 
         Task<IEnumerable<CategoryResponse>> GetAsync();
 
-        Task<IEnumerable<CategoryResponse>> GetByIdAsync();
+        Task<CategoryResponse> GetByIdAsync(int id);
         
         Task InsertAsync(CategoryRequest request);
 

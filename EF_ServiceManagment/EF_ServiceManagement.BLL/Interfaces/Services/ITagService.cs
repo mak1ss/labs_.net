@@ -1,6 +1,4 @@
-﻿
-using EF_ServiceManagement.BLL.DTO.Category;
-using EF_ServiceManagement.BLL.DTO.Tag;
+﻿using EF_ServiceManagement.BLL.DTO.Tag;
 
 namespace EF_ServiceManagement.BLL.Interfaces.Services
 {
@@ -8,7 +6,7 @@ namespace EF_ServiceManagement.BLL.Interfaces.Services
     {
         Task<IEnumerable<TagResponse>> GetAsync();
 
-        Task<IEnumerable<TagResponse>> GetByIdAsync();
+        Task<TagResponse> GetByIdAsync(int id);
 
         Task InsertAsync(TagRequest request);
 

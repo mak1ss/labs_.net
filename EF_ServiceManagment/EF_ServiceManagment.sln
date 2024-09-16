@@ -5,9 +5,9 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EF_ServiceManagment.WEBAPI", "EF_ServiceManagment\EF_ServiceManagment.WEBAPI.csproj", "{C52BA58F-18F9-474B-96BA-AC849FB0B547}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EF_ServcieManagement.DAL", "EF_ServcieManagement.DAL\EF_ServcieManagement.DAL.csproj", "{1620453B-3E49-4867-BC93-2C8471F646E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EF_ServiceManagement.DAL", "EF_ServcieManagement.DAL\EF_ServiceManagement.DAL.csproj", "{1620453B-3E49-4867-BC93-2C8471F646E5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EF_ServiceManagement.BLL", "EF_ServiceManagement.BLL\EF_ServiceManagement.BLL.csproj", "{C979A7A5-CF5A-428D-ADA6-1AB27DDBDA10}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EF_ServiceManagement.BLL", "EF_ServiceManagement.BLL\EF_ServiceManagement.BLL.csproj", "{C979A7A5-CF5A-428D-ADA6-1AB27DDBDA10}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

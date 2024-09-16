@@ -1,5 +1,4 @@
-﻿using EF_ServcieManagement.DAL.Entities;
-using EF_ServiceManagement.BLL.DTO.Service;
+﻿using EF_ServiceManagement.BLL.DTO.Service;
 
 namespace EF_ServiceManagement.BLL.Interfaces.Services
 {
@@ -7,7 +6,7 @@ namespace EF_ServiceManagement.BLL.Interfaces.Services
     {
         Task<IEnumerable<ServiceResponse>> GetAsync();
 
-        Task<IEnumerable<ServiceResponse>> GetByIdAsync();
+        Task<ServiceResponse> GetByIdAsync(int id);
 
         Task InsertAsync(ServiceRequest request);
 
@@ -15,12 +14,12 @@ namespace EF_ServiceManagement.BLL.Interfaces.Services
 
         Task DeleteAsync(int id);
 
-        Task<IEnumerable<Service>> GetServicesByCategoryAsync(int categoryId);
+        Task<IEnumerable<ServiceResponse>> GetServicesByCategoryAsync(int categoryId);
 
-        Task<IEnumerable<Service>> GetServicesByTagsAsync(string[] tagNames);
+        Task<IEnumerable<ServiceResponse>> GetServicesByTagsAsync(string[] tagNames);
 
-        Task<Service> AddTagAsync(int tagId, int serviceId);
+        Task<ServiceResponse> AddTagAsync(int tagId, int serviceId);
 
-        Task<Service> DeleteTagAsync(int tagId, int serviceId);
+        Task<ServiceResponse> DeleteTagAsync(int tagId, int serviceId);
     }
 }
