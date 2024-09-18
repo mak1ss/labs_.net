@@ -21,8 +21,7 @@ namespace EF_ServcieManagement.DAL.Configs
                    .HasMaxLength(500);
 
             builder.Property(c => c.CreatedAt)
-                   .IsRequired()
-                   .HasDefaultValueSql("GETUTCDATE()");
+                   .IsRequired();
 
             builder.Property(c => c.UpdatedAt);
 

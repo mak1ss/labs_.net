@@ -10,8 +10,9 @@ namespace EF_ServcieManagement.DAL.Seeding
         public void Seed(EntityTypeBuilder<Service> builder)
         {
             var random = new Random();
+            int id = 1;
             var faker = new Faker<Service>()
-                .RuleFor(s => s.Id, f => 0)
+                .RuleFor(s => s.Id, f => id++)
                 .RuleFor(s => s.Name, f => f.Commerce.ProductName())
                 .RuleFor(s => s.Description, f => f.Lorem.Sentences(3))
                 .RuleFor(s => s.Price, f => f.Finance.Amount(50, 1000))

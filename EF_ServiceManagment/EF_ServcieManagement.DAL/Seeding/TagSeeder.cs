@@ -9,8 +9,9 @@ namespace EF_ServcieManagement.DAL.Seeding
     {
         public void Seed(EntityTypeBuilder<Tag> builder)
         {
+            int id = 1;
             var faker = new Faker<Tag>()
-                .RuleFor(t => t.Id, f => 0)  // Id буде генеруватись базою
+                .RuleFor(s => s.Id, f => id++)
                 .RuleFor(t => t.Name, f => f.Commerce.ProductAdjective())
                 .RuleFor(c => c.CreatedAt, f => f.Date.Recent(2))
                 .RuleFor(c => c.UpdatedAt, f => f.Date.Recent(1));

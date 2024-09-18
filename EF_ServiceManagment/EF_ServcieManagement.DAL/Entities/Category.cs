@@ -1,7 +1,9 @@
 ﻿using EF_ServcieManagement.DAL.Interfaces;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EF_ServcieManagement.DAL.Entities
 {
+    [Table("categories")]
     public class Category : IEntity<int>, ITrackable
     {
         public int Id { get; set; }

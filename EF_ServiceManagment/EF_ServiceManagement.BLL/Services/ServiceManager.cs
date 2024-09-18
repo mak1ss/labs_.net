@@ -60,7 +60,7 @@ namespace EF_ServiceManagement.BLL.Services
 
         public async Task<ServiceResponse> GetByIdAsync(int id)
         {
-            var entity = await repo.GetByIdAsync(id);
+            var entity = await repo.GetCompleteEntityAsync(id);
             return mapper.Map<Service, ServiceResponse>(entity);
         }
 
@@ -78,13 +78,17 @@ namespace EF_ServiceManagement.BLL.Services
 
         public async Task InsertAsync(ServiceRequest request)
         {
-            await repo.InsertAsync(mapper.Map<ServiceRequest, Service>(request));
+            var service = mapper.Map<ServiceRequest, Service>(request);
+            service.Tags = new List<Tag>(await unitOfWork.TagRepository.GetTagsByIds(request.TagIds));
+            await repo.InsertAsync(service);
             await unitOfWork.SaveChangesAsync();
         }
 
         public async Task UpdateAsync(ServiceRequest request)
         {
-            await repo.UpdateAsync(mapper.Map<ServiceRequest, Service>(request));
+            var service = mapper.Map<ServiceRequest, Service>(request);
+            service.Tags = new List<Tag>(await unitOfWork.TagRepository.GetTagsByIds(request.TagIds));
+            await repo.UpdateAsync(service);
             await unitOfWork.SaveChangesAsync();
         }
     }
