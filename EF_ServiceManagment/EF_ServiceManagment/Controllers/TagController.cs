@@ -1,5 +1,4 @@
-﻿using EF_ServcieManagement.DAL.Exceptions;
-using EF_ServiceManagement.BLL.DTO.Tag;
+﻿using EF_ServiceManagement.BLL.DTO.Tag;
 using EF_ServiceManagement.BLL.Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,12 +9,10 @@ namespace EF_ServiceManagment.WEBAPI.Controllers
     public class TagController : ControllerBase
     {
         private readonly ITagService _tagService;
-        private readonly ILogger<TagController> _logger;
 
-        public TagController(ITagService tagService, ILogger<TagController> logger)
+        public TagController(ITagService tagService)
         {
             _tagService = tagService;
-            _logger = logger;
         }
 
         [HttpGet]
@@ -23,16 +20,8 @@ namespace EF_ServiceManagment.WEBAPI.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetTags()
         {
-            try
-            {
-                var tags = await _tagService.GetAsync();
-                return Ok(tags);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Error in {nameof(GetTags)}: {ex.Message}");
-                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while retrieving the tags.");
-            }
+            var tags = await _tagService.GetAsync();
+            return Ok(tags);
         }
 
         [HttpGet("{id:int}")]
@@ -41,21 +30,8 @@ namespace EF_ServiceManagment.WEBAPI.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetTagById(int id)
         {
-            try
-            {
-                var tag = await _tagService.GetByIdAsync(id);
-                return Ok(tag);
-            }
-            catch (EntityNotFoundException ex)
-            {
-                _logger.LogWarning($"Tag with ID {id} not found: {ex.Message}");
-                return NotFound($"Tag with ID {id} was not found.");
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Error in {nameof(GetTagById)}: {ex.Message}");
-                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while retrieving the tag.");
-            }
+            var tag = await _tagService.GetByIdAsync(id);
+            return Ok(tag);
         }
 
         [HttpPost]
@@ -64,22 +40,8 @@ namespace EF_ServiceManagment.WEBAPI.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> CreateTag([FromBody] TagRequest tagRequest)
         {
-            if (tagRequest == null)
-            {
-                _logger.LogWarning("CreateTag was called with null request.");
-                return BadRequest("Invalid tag request.");
-            }
-
-            try
-            {
-                await _tagService.InsertAsync(tagRequest);
-                return StatusCode(StatusCodes.Status201Created);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Error in {nameof(CreateTag)}: {ex.Message}");
-                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while creating the tag.");
-            }
+            await _tagService.InsertAsync(tagRequest);
+            return StatusCode(StatusCodes.Status201Created);
         }
 
         [HttpPut("{id:int}")]
@@ -89,28 +51,9 @@ namespace EF_ServiceManagment.WEBAPI.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> UpdateTag(int id, [FromBody] TagRequest tagRequest)
         {
-            if (tagRequest == null || id <= 0)
-            {
-                _logger.LogWarning("UpdateTag was called with invalid parameters.");
-                return BadRequest("Invalid tag request or ID.");
-            }
-
-            try
-            {
-                var tag = await _tagService.GetByIdAsync(id);
-                await _tagService.UpdateAsync(tagRequest);
-                return Ok();
-            }
-            catch (EntityNotFoundException ex)
-            {
-                _logger.LogWarning($"Tag with ID {id} not found: {ex.Message}");
-                return NotFound($"Tag with ID {id} was not found.");
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Error in {nameof(UpdateTag)}: {ex.Message}");
-                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while updating the tag.");
-            }
+            var tag = await _tagService.GetByIdAsync(id);
+            await _tagService.UpdateAsync(tagRequest);
+            return Ok();
         }
 
         [HttpDelete("{id:int}")]
@@ -119,22 +62,9 @@ namespace EF_ServiceManagment.WEBAPI.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> DeleteTag(int id)
         {
-            try
-            {
-                var tag = await _tagService.GetByIdAsync(id);
-                await _tagService.DeleteAsync(id);
-                return Ok();
-            }
-            catch (EntityNotFoundException ex)
-            {
-                _logger.LogWarning($"Tag with ID {id} not found: {ex.Message}");
-                return NotFound($"Tag with ID {id} was not found.");
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Error in {nameof(DeleteTag)}: {ex.Message}");
-                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while deleting the tag.");
-            }
+            var tag = await _tagService.GetByIdAsync(id);
+            await _tagService.DeleteAsync(id);
+            return Ok();
         }
     }
 }

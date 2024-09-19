@@ -8,7 +8,14 @@ using FluentValidation.AspNetCore;
 using EF_ServcieManagement.DAL.Data.Repositories;
 using EF_ServcieManagement.DAL.Data;
 using EF_ServiceManagement.BLL.Services;
-using Microsoft.AspNetCore.Builder;
+using EF_ServiceManagment.WEBAPI.ExceptionHandling;
+using EF_ServiceManagement.BLL.Validations;
+using EF_ServiceManagement.BLL.DTO.Category;
+using EF_ServiceManagement.BLL.DTO.Service;
+using EF_ServiceManagement.BLL.DTO.Tag;
+using EF_ServiceManagment.WEBAPI.Filters;
+using EF_ServcieManagement.DAL.Entities;
+using Microsoft.AspNetCore.Mvc;
 
 namespace EF_ServiceManagment.WEBAPI
 {
@@ -39,10 +46,16 @@ namespace EF_ServiceManagment.WEBAPI
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-            services.AddTransient<IValidatorFactory, ServiceProviderValidatorFactory>();
             services.AddFluentValidationAutoValidation();
+            services.AddScoped<IValidator<CategoryRequest>, CategoryRequestValidator>();
+            services.AddScoped<IValidator<ServiceRequest>, ServiceRequestValidator>();
+            services.AddScoped<IValidator<TagRequest>, TagRequestValidator>();
 
-            services.AddControllers();
+            services.Configure<ApiBehaviorOptions>(options
+                        => options.SuppressModelStateInvalidFilter = true);
+            services.AddScoped<ValidationFilter>();
+
+            services.AddControllers(options => options.Filters.Add(typeof(ValidationFilter)));
 
             services.AddSwaggerGen(c =>
             {
@@ -52,6 +65,12 @@ namespace EF_ServiceManagment.WEBAPI
                     Version = "v1"
                 });
             });
+
+            services.AddProblemDetails();
+
+            services.AddExceptionHandler<BadRequestExceptionHandler>();
+            services.AddExceptionHandler<EntityNotFoundExceptionHandler>();
+            services.AddExceptionHandler<GlobalExceptionHandler>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -67,6 +86,8 @@ namespace EF_ServiceManagment.WEBAPI
                 });
             }
 
+            app.UseExceptionHandler();
+           
             app.UseHttpsRedirection();
 
             app.UseRouting();
